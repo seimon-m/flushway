@@ -5,6 +5,7 @@
     />
     <div id="map"></div>
     <div id="features">
+        <h2>flushway</h2>
         <section ref="first" :class="{ active: chapters.first.active }">
             <h3>first</h3>
             <p>
