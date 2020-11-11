@@ -6,7 +6,7 @@
 npm install
 ```
 
-For local development, a .env.local file with the API-Keys is needed. Contact @seimon-m for more informations.
+For local development, a .env.local file with the API-Keys is needed. Contact [@seimon-m](https://github.com/seimon-m) for more informations.
 
 ### Compiles and hot-reloads for development
 
