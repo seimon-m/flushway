@@ -4,21 +4,19 @@
         <p>
             {{ waterstation.fields.description.content[0].content[0].value }}
         </p>
-        <button @click="$emit('set-active')">Set active</button>
     </section>
 </template>
 
 <script>
 export default {
-    name: "HelloWorld",
-    emits: ["set-active"],
+    name: "Waterstation",
     props: {
         waterstation: Object,
         active: Boolean,
     },
     methods: {
         checkBounds() {
-            var bounds = this.$el.getBoundingClientRect();
+            let bounds = this.$el.getBoundingClientRect();
             if (bounds.top < window.innerHeight / 20 && bounds.bottom > 0) {
                 this.$emit("set-active");
             }
