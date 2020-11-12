@@ -3,8 +3,8 @@
         href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
         rel="stylesheet"
     />
-    <div ref="map" id="map"></div>
-    <div id="features" ref="REF">
+    <div id="map"></div>
+    <div id="features">
         <div
             v-for="(station, index) in waterstations"
             :key="station.fields.title"
@@ -12,6 +12,7 @@
             <Waterstation
                 :waterstation="station"
                 :active="this.chapters[index].active"
+                @set-active="this.setActiveChapter(index)"
             />
         </div>
         <div class="spacer"></div>
@@ -97,17 +98,6 @@ export default {
         };
     },
     methods: {
-        onScroll() {
-            var chapterNames = Object.keys(this.chapters);
-            for (var i = 0; i < chapterNames.length; i++) {
-                var chapterName = chapterNames[i];
-                console.log(chapterName);
-                if (this.isElementOnScreen(chapterName)) {
-                    this.setActiveChapter(chapterName);
-                    break;
-                }
-            }
-        },
         setActiveChapter(chapterName) {
             if (chapterName === this.activeChapterName) return;
 
@@ -115,11 +105,6 @@ export default {
             this.chapters[chapterName].active = true;
             this.chapters[this.activeChapterName].active = false;
             this.activeChapterName = chapterName;
-        },
-        isElementOnScreen(id) {
-            var element = this.$refs[id];
-            var bounds = element.getBoundingClientRect();
-            return bounds.top < window.innerHeight && bounds.bottom > 0;
         },
         async getContentful() {
             let result = await contentfulClient.getEntries({
@@ -138,21 +123,9 @@ export default {
             bearing: 27,
             pitch: 45,
         });
-        // console.log(this.$refs);
-        this.$nextTick(() => {
-            console.log(this.$refs.REF.children);
-
-            this.$refs.REF.children.forEach((node) => {
-                console.log(node);
-            });
-        });
     },
     created() {
-        window.addEventListener("scroll", this.onScroll);
         this.getContentful();
-    },
-    unmounted() {
-        window.removeEventListener("scroll", this.onScroll);
     },
 };
 </script>

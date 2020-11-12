@@ -1,18 +1,34 @@
 <template>
-    <section :ref="ref" :class="active ? 'active' : ''">
+    <section :class="active ? 'active' : ''">
         <h3>{{ waterstation.fields.title }}</h3>
         <p>
             {{ waterstation.fields.description.content[0].content[0].value }}
         </p>
+        <button @click="$emit('set-active')">Set active</button>
     </section>
 </template>
 
 <script>
 export default {
     name: "HelloWorld",
+    emits: ["set-active"],
     props: {
         waterstation: Object,
         active: Boolean,
+    },
+    methods: {
+        checkBounds() {
+            var bounds = this.$el.getBoundingClientRect();
+            if (bounds.top < window.innerHeight / 20 && bounds.bottom > 0) {
+                this.$emit("set-active");
+            }
+        },
+    },
+    created() {
+        window.addEventListener("scroll", this.checkBounds);
+    },
+    unmounted() {
+        window.removeEventListener("scroll", this.checkBounds);
     },
 };
 </script>
