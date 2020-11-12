@@ -1,11 +1,17 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import FlyTo from "../views/FlyTo.vue";
+import FlyTo2 from "../views/FlyTo2.vue";
 
 const routes = [
     {
         path: "/",
         name: "FlyTo",
         component: FlyTo,
+    },
+    {
+        path: "/flyto2",
+        name: "FlyTo2",
+        component: FlyTo2,
     },
     {
         path: "/about",
