@@ -1,4 +1,6 @@
 # flushway
+Welcome to the flushway project. What happens to the wastewater when you press the flush button?
+In our web project we tell what happens to the waste water as soon as it leaves the house. We show it's way on a map. From your own home through the sewers to the Waste Water Treatment Plant and then to the Reuss river near Lucerne.
 
 ## Project setup
 
@@ -20,12 +22,11 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+## Deployments
 
-```
-npm run lint
-```
+Netlify triggers automatically new deployments for the master branch and pull request. The following branche - domain combination is available globally.
 
-### Customize configuration
+| Branch    | Domain                                    |
+| --------- | ----------------------------------------- |
+| `master`  | [flushway.ch](https://flushway.netlify.app)  |
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
