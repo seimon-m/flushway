@@ -156,7 +156,7 @@ body {
     margin-left: 50%;
     font-family: sans-serif;
     overflow-y: scroll;
-    background-color: rgba(255, 255, 255, 0.5);;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .spacer {

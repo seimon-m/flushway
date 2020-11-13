@@ -1,7 +1,10 @@
 <template>
     <div class="start-wrapper">
         <div class="start">
-            <h1>WOHIN FLIESST DEIN <span class="font-color">ABWASSER</span>, WENN DU SPÜHLST?</h1>
+            <h1>
+                WOHIN FLIESST DEIN <span class="font-color">ABWASSER</span>,
+                WENN DU SPÜHLST?
+            </h1>
             <form class="demo" role="adress">
                 <label for="search" class="hidden-visually">Adresse: </label>
                 <input
@@ -50,17 +53,16 @@ export default {
     margin-right: auto;
 }
 
-.font-color{
-    color: #5FF4F4;
+.font-color {
+    color: #5ff4f4;
 }
 
 input {
     width: 350px;
     height: 60px;
-    
 }
 
-button{
+button {
     width: 200px;
     height: 60px;
 }
