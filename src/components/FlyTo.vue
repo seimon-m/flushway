@@ -5,6 +5,8 @@
     />
     <div id="map"></div>
     <div id="features">
+        <h2>flushway</h2>
+        <h4>Deine Adresse: {{ adress }}</h4>
         <div
             v-for="(station, index) in waterstations"
             :key="station.fields.title"
@@ -26,6 +28,7 @@ import contentfulClient from "@/modules/contentful.js";
 import Waterstation from "@/components/Waterstation.vue";
 
 export default {
+    props: ["adress"],
     name: "Map",
     components: {
         Waterstation,
