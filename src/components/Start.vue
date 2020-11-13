@@ -11,6 +11,7 @@
                     type="text"
                     name="adress"
                     id="adress"
+                    placeholder="Gib deine Adresse ein ..."
                     @input="handleChange"
                 />
                 <button type="button" @click="$emit('set-start')">
@@ -53,18 +54,34 @@ export default {
     margin-right: auto;
 }
 
+h1 {
+    margin-bottom: 30px;
+}
+
 .font-color {
     color: #5ff4f4;
 }
 
 input {
-    width: 350px;
+    width: 380px;
     height: 60px;
+    border-radius:30px 0px 0px 30px;
+    padding-left: 30px;
 }
 
 button {
     width: 200px;
     height: 60px;
+    border-radius:30px 30px 30px 30px;
+    background-color: #5ff4f4;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: -30px;
+}
+
+button:hover{
+    background-color: #5BD6D6;
 }
 
 .hidden-visually {
