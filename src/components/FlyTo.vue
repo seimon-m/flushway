@@ -140,21 +140,23 @@ body {
 }
 #map {
     position: absolute;
-    margin-top: 200px;
+    top: 100vh;
     bottom: 0;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
 }
 
 #map {
     /* position: fixed; */
-    width: 50%;
+    /* width: 50%; */
 }
 #features {
     width: 50%;
     margin-left: 50%;
     font-family: sans-serif;
     overflow-y: scroll;
-    background-color: #fafafa;
+    background-color: rgba(255, 255, 255, 0.5);;
 }
 
 .spacer {
