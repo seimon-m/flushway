@@ -1,20 +1,25 @@
-<template>
-    <transition name="bounce">
+<template @scroll="onScroll">
+    <!-- <transition name="bounce">
         <Start
-            v-if="!start"
+            v-if="!start && !showAra"
             @set-start="start = true"
             @handle-change="handleChange($event)"
         />
     </transition>
     <transition name="bounce">
-        <FlyTo v-if="start" :adress="adress" />
+        <FlyTo v-if="start && !showAra" :adress="adress" />
     </transition>
+    <Ara v-if="showAra" /> -->
+    <Start @set-start="start = true" @handle-change="handleChange($event)" />
+    <FlyTo :adress="adress" />
+    <Ara />
 </template>
 
 <script>
 // @ is an alias to /src
 import FlyTo from "../components/FlyTo.vue";
 import Start from "../components/Start.vue";
+import Ara from "../components/Ara.vue";
 
 export default {
     name: "Main",
@@ -22,15 +27,22 @@ export default {
         return {
             start: false,
             adress: "",
+            showAra: false,
         };
     },
     components: {
         FlyTo,
         Start,
+        Ara,
     },
     methods: {
         handleChange(payload) {
             this.adress = payload;
+        },
+        onScroll({ target: { scrollTop, clientHeight, scrollHeight } }) {
+            if (scrollTop + clientHeight >= scrollHeight) {
+                this.showAra = true;
+            }
         },
     },
 };

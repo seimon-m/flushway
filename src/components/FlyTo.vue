@@ -140,13 +140,13 @@ body {
 }
 #map {
     position: absolute;
-    top: 0;
+    margin-top: 200px;
     bottom: 0;
     width: 100%;
 }
 
 #map {
-    position: fixed;
+    /* position: fixed; */
     width: 50%;
 }
 #features {

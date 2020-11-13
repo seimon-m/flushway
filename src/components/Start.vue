@@ -30,8 +30,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-div {
-    margin-bottom: 1000px;
+.start {
+    height: 100%;
 }
 .hidden-visually {
     position: absolute;
