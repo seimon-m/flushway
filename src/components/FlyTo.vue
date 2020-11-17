@@ -5,9 +5,9 @@
     />
     <div id="map"></div>
     <div id="features">
-        <h2>flushway</h2>
-        <h4>Deine Adresse: {{ adress }}</h4>
+        <!-- <h4>Deine Adresse: {{ adress }}</h4> -->
         <div
+            v-bind:class="'waterstation w' + (index + 1)"
             v-for="(station, index) in waterstations"
             :key="station.fields.title"
         >
@@ -17,7 +17,7 @@
                 @set-active="this.setActiveChapter(index)"
             />
         </div>
-        <div class="spacer"></div>
+        <h4 class="trigger">Deine Adresse: {{ adress }}</h4>
     </div>
 </template>
 
@@ -38,6 +38,7 @@ export default {
             map: "",
             waterstations: [],
             activeChapterName: 0,
+            waterstationSix: "",
             chapters: {
                 "0": {
                     bearing: 27,
@@ -115,6 +116,20 @@ export default {
             });
             this.waterstations = result.items[0].fields.waterstation;
         },
+
+        checkSlide() {
+        console.log(this.waterstationSix.offsetTop);
+        console.log(window.scrollY);
+            if (window.scrollY - window.innerHeight >= this.waterstationSix.offsetTop) {
+                console.log("fixed");
+                document.getElementById("map").style.position = "absolute";
+                document.getElementById("map").style.top = "600vh";
+            } else {
+                console.log("scroll");
+                document.getElementById("map").style.position = "fixed";
+                document.getElementById("map").style.top = "0";
+            }
+        },
     },
     mounted() {
         mapboxgl.accessToken = process.env.VUE_APP_MAPBOX_ACCESS_TOKEN;
@@ -126,9 +141,19 @@ export default {
             bearing: 27,
             pitch: 45,
         });
+
+        window.addEventListener("scroll", this.checkSlide);
+    },
+    updated() {
+        // Fixed Map
+        this.waterstationSix = document.querySelector(".w6");
+        console.log(this.waterstationSix);
     },
     created() {
         this.getContentful();
+    },
+    unmounted() {
+        window.removeEventListener("scroll", this.checkSlide);
     },
 };
 </script>
@@ -139,27 +164,48 @@ body {
     padding: 0;
 }
 #map {
-    position: absolute;
-    top: 100vh;
-    bottom: 0;
+    position: fixed;
+    top: 0;
     height: 100vh;
     width: 100vw;
     z-index: -1;
 }
 
-#map {
-    /* position: fixed; */
-    /* width: 50%; */
+#map-finished {
+    position: absolute;
+    top: 600vh;
 }
+
 #features {
     width: 50%;
     margin-left: 50%;
     font-family: sans-serif;
     overflow-y: scroll;
-    background-color: rgba(255, 255, 255, 0.5);
+
+    background-color: rgba(36, 36, 36, 0.5);
+    backdrop-filter: blur(8px);
 }
 
-.spacer {
-    padding: 800px;
+h3 {
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.waterstation {
+    box-sizing: border-box;
+    min-height: 100vh;
+    border: 1px;
+    border-style: solid;
+
+    display: flex;
+    align-items: center;
+}
+
+section[data-v-67f5d1ed] {
+    border: 0px;
+    font-family: "Raleway", sans-serif;
+
+    /*padding-top: calc(50vh - 100px);
+    padding-bottom: calc(50vh - 100px);*/
 }
 </style>

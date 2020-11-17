@@ -25,6 +25,9 @@ export default {
     created() {
         window.addEventListener("scroll", this.checkBounds);
     },
+    mounted() {
+        console.log("Waterstation");
+    },
     unmounted() {
         window.removeEventListener("scroll", this.checkBounds);
     },

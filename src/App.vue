@@ -6,7 +6,7 @@
     <router-view />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </template>
 
 <!-- Global Style -->
@@ -58,6 +58,10 @@ table {
 
 /* OTHER CSS */
 
+*:focus {
+    outline: none;
+}
+
 body {
 	background-color: #242424;
 }
@@ -89,7 +93,7 @@ body {
 }
 
 h1 {
-    font-weight: bold;
+    font-weight: 800;
     font-size: 100px;
 }
 
@@ -98,9 +102,25 @@ h2 {
     font-size: 60px;
 }
 
+h3 {
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
 p {
-    font-weight: normal;
+    font-weight: 500;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.8)
+}
+
+/* MAP */
+
+.mapboxgl-ctrl-bottom-left {
+    display: none !important;
+}
+
+.mapboxgl-ctrl-bottom-right {
+    display: none !important;
 }
 </style>

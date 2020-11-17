@@ -14,7 +14,7 @@
                     placeholder="Gib deine Adresse ein ..."
                     @input="handleChange"
                 />
-                <button type="button" @click="$emit('set-start')">
+                <button id="button" type="button" @click="$emit('set-start')">
                     Flush
                 </button>
             </form>
@@ -31,6 +31,10 @@ export default {
             this.$emit("handle-change", e.target.value);
         },
     },
+    mounted() {
+        let button = document.getElementById("button");
+        console.log(button);
+    }
 };
 </script>
 
@@ -42,6 +46,9 @@ export default {
 
     display: flex;
     align-items: center;
+
+    background-color: rgba(36, 36, 36, 0.5);
+    backdrop-filter: blur(8px);
 }
 
 .start {
@@ -67,6 +74,7 @@ input {
     height: 60px;
     border-radius:30px 0px 0px 30px;
     padding-left: 30px;
+    font-weight: 600;
 }
 
 button {
