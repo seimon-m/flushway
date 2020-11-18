@@ -98,14 +98,19 @@ h1 {
 }
 
 h2 {
-    font-weight: bold;
-    font-size: 60px;
+    font-weight: 800;
+    font-size: 70px;
 }
 
 h3 {
     font-weight: bold;
-    font-size: 35px;
+    font-size: 40px;
     margin-bottom: 20px;
+}
+
+h4 {
+    font-weight: 800;
+    font-size: 40px;
 }
 
 p {

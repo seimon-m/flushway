@@ -17,7 +17,7 @@
                 @set-active="this.setActiveChapter(index)"
             />
         </div>
-        <h4 class="trigger">Deine Adresse: {{ adress }}</h4>
+        <!-- <h4 class="trigger">Deine Adresse: {{ adress }}</h4> -->
     </div>
 </template>
 
@@ -118,14 +118,12 @@ export default {
         },
 
         checkSlide() {
-        console.log(this.waterstationSix.offsetTop);
-        console.log(window.scrollY);
             if (window.scrollY - window.innerHeight >= this.waterstationSix.offsetTop) {
-                console.log("fixed");
+                //console.log("fixed");
                 document.getElementById("map").style.position = "absolute";
                 document.getElementById("map").style.top = "600vh";
             } else {
-                console.log("scroll");
+                //console.log("scroll");
                 document.getElementById("map").style.position = "fixed";
                 document.getElementById("map").style.top = "0";
             }
@@ -147,7 +145,6 @@ export default {
     updated() {
         // Fixed Map
         this.waterstationSix = document.querySelector(".w6");
-        console.log(this.waterstationSix);
     },
     created() {
         this.getContentful();
@@ -171,11 +168,6 @@ body {
     z-index: -1;
 }
 
-#map-finished {
-    position: absolute;
-    top: 600vh;
-}
-
 #features {
     width: 50%;
     margin-left: 50%;
@@ -186,26 +178,12 @@ body {
     backdrop-filter: blur(8px);
 }
 
-h3 {
-    margin-bottom: 20px;
-    line-height: 1.1;
-}
-
 .waterstation {
     box-sizing: border-box;
     min-height: 100vh;
-    border: 1px;
-    border-style: solid;
+    border: 0px solid white;
 
     display: flex;
     align-items: center;
-}
-
-section[data-v-67f5d1ed] {
-    border: 0px;
-    font-family: "Raleway", sans-serif;
-
-    /*padding-top: calc(50vh - 100px);
-    padding-bottom: calc(50vh - 100px);*/
 }
 </style>

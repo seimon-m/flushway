@@ -33,7 +33,18 @@ export default {
     },
     mounted() {
         let button = document.getElementById("button");
-        console.log(button);
+        //console.log(button);
+
+        let waterstationOne = document.querySelector(".w1");
+        console.log(this.waterstationOne);
+
+        button.onclick = function() {
+            //window.scrollTo({ top: 300, left: 0, behavior: "smooth" });
+            waterstationOne.scrollIntoView({ left: 0, block: 'start', behavior: 'smooth' });
+        }
+    },
+    updated() {
+        
     }
 };
 </script>
