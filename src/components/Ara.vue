@@ -1,0 +1,177 @@
+<template>
+    <div class="ara-wrapper">
+        <h2 class="title-ara">
+            Ablauf der Wasserreinigung in der ARA
+        </h2>
+        <div
+            v-for="(station, index) in araStations"
+            :key="station.fields.title"
+            v-bind:class="'station s' + (index + 1)"
+        >
+            <h4>{{ station.fields.title }}</h4>
+            <p class="description">
+                {{ station.fields.description.content[0].content[0].value }}
+            </p>
+            <img
+                class="image i1"
+                v-if="station.fields.media"
+                :src="station.fields.media[0].fields.file.url"
+            />
+            <img
+                class="image i2"
+                v-if="showSecondImg(index)"
+                :src="station.fields.media[1].fields.file.url"
+            />
+            <img
+                class="image i3"
+                v-if="showThirdImg(index)"
+                :src="station.fields.media[2].fields.file.url"
+            />
+        </div>
+    </div>
+    <div class="end-wrapper">
+        <div class="end">
+            <h2>So wird der Kreislauf wieder geschlossen</h2>
+            <p>Möchtest du den Abwasserweg von einer weiteren Adresse entdecken?</p>
+            <button class="end-button" type="button">FLUSH AGAIN</button>
+        </div>
+    </div>
+</template>
+
+<script>
+import contentfulClient from "@/modules/contentful.js";
+
+export default {
+    name: "Ara",
+    data() {
+        return {
+            araStations: [],
+        };
+    },
+    computed: {},
+    methods: {
+        async getContentful() {
+            let result = await contentfulClient.getEntries({
+                content_type: "ara",
+            });
+            console.log(result);
+            this.araStations = result.items[0].fields.araStation;
+            console.log(this.araStations);
+        },
+        showSecondImg(index) {
+            return index == 3 || index == 8;
+        },
+        showThirdImg(index) {
+            return index == 8;
+        },
+    },
+    mounted() {
+        let endButton = document.querySelector(".end-button");
+
+        endButton.onclick = function() {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }
+    },
+    created() {
+        this.getContentful();
+    },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.ara-wrapper {
+    min-height: 100vh;
+    width: 100vw;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-ara{
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 100px;
+}
+
+.station {
+    padding-right: 100px;
+    padding-left: 100px;
+    width: calc(100vw/2 - 100px);
+
+    justify-content: flex-start;
+}
+
+.description {
+    max-width: 440px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.image {
+    margin: 40px;
+    max-width: 500px;
+}
+
+.s2 {
+    align-self: flex-end;
+}
+
+.s4 {
+    align-self: flex-end;
+}
+
+.s6 {
+    align-self: flex-end;
+}
+
+.s7 {
+    align-self: flex-end;
+}
+
+.s8 {
+    align-self: flex-end;
+}
+
+.s9 {
+    align-self: flex-end;
+}
+
+.end-wrapper {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+}
+
+.end {
+    /* max-width: 1100px; */
+    max-width: 1200px;
+    padding-right: 100px;
+    padding-left: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.end-button {
+    width: 200px;
+    height: 60px;
+    border-radius:30px 30px 30px 30px;
+    background-color: #5ff4f4;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 40px;
+    /*margin-left: -30px;*/
+}
+
+.end-button:hover{
+    background-color: #5BD6D6;
+}
+</style>

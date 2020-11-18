@@ -25,6 +25,9 @@ export default {
     created() {
         window.addEventListener("scroll", this.checkBounds);
     },
+    mounted() {
+        console.log("Waterstation");
+    },
     unmounted() {
         window.removeEventListener("scroll", this.checkBounds);
     },
@@ -34,13 +37,20 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 section {
-    padding: 25px 50px;
+    padding: 25px 80px;
     line-height: 25px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0px solid #ddd;
     opacity: 0.25;
     font-size: 13px;
+    font-family: "Raleway", sans-serif;
 }
 section.active {
     opacity: 1;
 }
+
+h3 {
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
 </style>
