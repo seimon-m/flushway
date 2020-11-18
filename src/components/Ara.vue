@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="ara-wrapper">
         <h2 class="title-ara">
             Ablauf der Wasserreinigung in der ARA
@@ -36,6 +37,7 @@
             <button class="end-button" type="button">FLUSH AGAIN</button>
         </div>
     </div>
+ </div>
 </template>
 
 <script>
