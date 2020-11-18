@@ -118,7 +118,10 @@ export default {
         },
 
         checkSlide() {
-            if (window.scrollY - window.innerHeight >= this.waterstationSix.offsetTop) {
+            if (
+                window.scrollY - window.innerHeight >=
+                this.waterstationSix.offsetTop
+            ) {
                 //console.log("fixed");
                 document.getElementById("map").style.position = "absolute";
                 document.getElementById("map").style.top = "600vh";
@@ -133,7 +136,7 @@ export default {
         mapboxgl.accessToken = process.env.VUE_APP_MAPBOX_ACCESS_TOKEN;
         this.map = new mapboxgl.Map({
             container: "map",
-            style: "mapbox://styles/seimon/ckh3f75gc09mu19nvgrieu4dj",
+            style: "mapbox://styles/chiarakuehne/ckhd8lp6y0bv119qmf354di65",
             center: [8.305610426911699, 47.04713072067631],
             zoom: 15.5,
             bearing: 27,
