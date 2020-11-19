@@ -83,13 +83,15 @@
                     <div class="info-content">
                         <h2>Über dieses Projekt</h2>
                         <p class="projekt-beschreibung">
-                            Welcome to the flushway project. What happens to the
-                            wastewater when you press the flush button? In our
-                            web project we tell what happens to the waste water
-                            as soon as it leaves the house. We show it's way on
-                            a map. From your own home through the sewers to the
-                            Waste Water Treatment Plant and then to the Reuss
-                            river near Lucerne.
+                            Willkommen bei flushway. Was passiert mit Deinem
+                            Abwasser, wenn Du die Spültaste drückst? In unserem
+                            Webprojekt wird der Weg Deines Abwassers, wenn es
+                            Dein zu Hause verlässt auf einer Karte ersichtlich.
+                            Der Weg verläuft von Deinem Haus, durch die
+                            Kanalisation, zur Kläranlage und schlussendlich in
+                            die Reuss. Den Ablauf in der Kläranlage haben wir
+                            illustriert und beschrieben, damit Du verstehst wie
+                            Dein Abwasser gereinigt wird.
                         </p>
                         <div class="ueber-wrapper">
                             <div class="ueber">
