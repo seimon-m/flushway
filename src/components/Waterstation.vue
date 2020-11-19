@@ -17,16 +17,13 @@ export default {
     methods: {
         checkBounds() {
             let bounds = this.$el.getBoundingClientRect();
-            if (bounds.top < window.innerHeight / 20 && bounds.bottom > 0) {
+            if (bounds.top < window.innerHeight / 2 && bounds.bottom > 0) {
                 this.$emit("set-active");
             }
         },
     },
     created() {
         window.addEventListener("scroll", this.checkBounds);
-    },
-    mounted() {
-        console.log("Waterstation");
     },
     unmounted() {
         window.removeEventListener("scroll", this.checkBounds);
@@ -52,5 +49,4 @@ h3 {
     margin-bottom: 20px;
     line-height: 1.1;
 }
-
 </style>

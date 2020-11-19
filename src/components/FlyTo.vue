@@ -5,7 +5,6 @@
     />
     <div id="map"></div>
     <div id="features">
-        <!-- <h4>Deine Adresse: {{ adress }}</h4> -->
         <div
             v-bind:class="'waterstation w' + (index + 1)"
             v-for="(station, index) in waterstations"
@@ -17,8 +16,6 @@
                 @set-active="this.setActiveChapter(index)"
             />
         </div>
-        <!-- <img src="../assets/marker.png" alt="aaa" width="35" height="35"> -->
-        <!-- <h4 class="trigger">Deine Adresse: {{ adress }}</h4> -->
     </div>
 </template>
 
@@ -29,7 +26,6 @@ import contentfulClient from "@/modules/contentful.js";
 import Waterstation from "@/components/Waterstation.vue";
 
 export default {
-    props: ["adress"],
     name: "Map",
     components: {
         Waterstation,
@@ -122,11 +118,9 @@ export default {
                 window.scrollY - window.innerHeight >=
                 this.lastWaterstation.offsetTop
             ) {
-                //console.log("fixed");
                 document.getElementById("map").style.position = "absolute";
                 document.getElementById("map").style.top = "700vh";
             } else {
-                //console.log("scroll");
                 document.getElementById("map").style.position = "fixed";
                 document.getElementById("map").style.top = "0";
             }
@@ -212,7 +206,7 @@ export default {
                     },
                     geometry: {
                         type: "Point",
-                        coordinates: [8.326256,47.089994],
+                        coordinates: [8.326256, 47.089994],
                     },
                 },
             ],
@@ -254,11 +248,11 @@ export default {
             .addTo(this.map);
 
         this.marker = new mapboxgl.Marker()
-            .setLngLat([8.326256,47.089994])
+            .setLngLat([8.326256, 47.089994])
             .addTo(this.map);
 
         // add markers to map
-        geojson.features.forEach(marker => {
+        geojson.features.forEach((marker) => {
             // create a DOM element for the marker
             var el = document.createElement("div");
             el.className = "marker";

@@ -1,10 +1,4 @@
 <template>
-    <!-- <div id="nav">
-        <router-link to="/">FlyTo</router-link>
-        <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap"
@@ -14,6 +8,7 @@
         href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
         rel="stylesheet"
     />
+    <router-view />
 </template>
 
 <!-- Global Style -->
