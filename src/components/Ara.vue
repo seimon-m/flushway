@@ -9,15 +9,19 @@
                 :key="index"
                 v-bind:class="'station s' + (index + 1)"
             >
-                <h4>{{ station.fields.title }}</h4>
-                <p class="description">
-                    {{ station.fields.description.content[0].content[0].value }}
-                </p>
-                <img
-                    class="image i1"
-                    v-if="station.fields.media"
-                    :src="station.fields.media[0].fields.file.url"
-                />
+                <div class="station-text">
+                    <h4>{{ station.fields.title }}</h4>
+                    <p class="description">
+                        {{ station.fields.description.content[0].content[0].value }}
+                    </p>
+                </div>
+                <div class="station-img">
+                    <img
+                        class="image i1"
+                        v-if="station.fields.media"
+                        :src="station.fields.media[0].fields.file.url"
+                    />
+                </div>
             </div>
         </div>
         <div class="end-wrapper">
@@ -233,9 +237,19 @@ export default {
 .station {
     padding-right: 100px;
     padding-left: 100px;
-    width: calc(100vw / 2 - 100px);
+    margin-bottom: 50px;
+}
 
-    justify-content: flex-start;
+.s1, .s3, .s5, .s7, .s9 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.s2, .s4, .s6, .s8 {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 
 .description {
@@ -245,33 +259,26 @@ export default {
 }
 
 .image {
-    margin: 40px;
+    /*margin: 40px;*/
     max-width: 500px;
+    height: 500px;
+
 }
 
-.s2 {
-    align-self: flex-end;
+.station-text {
+    width: calc(100vw / 2 - 100px);
 }
 
-.s4 {
-    align-self: flex-end;
+.station-text p{
+    line-height: 1.5;
+    margin-top: 20px;
 }
 
-.s6 {
-    align-self: flex-end;
-}
-
-.s7 {
-    align-self: flex-end;
-}
-
-.s8 {
-    align-self: flex-end;
-}
-
-.s9 {
-    align-self: flex-end;
-}
+.station-img {
+    width: calc(100vw / 2 - 100px);
+    display: flex;
+    justify-content: center;
+} 
 
 .end-wrapper {
     height: 100vh;
