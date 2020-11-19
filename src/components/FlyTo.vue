@@ -17,7 +17,7 @@
                 @set-active="this.setActiveChapter(index)"
             />
         </div>
-        <img src="../assets/marker.png" alt="aaa" width="35" height="35">
+        <!-- <img src="../assets/marker.png" alt="aaa" width="35" height="35"> -->
         <!-- <h4 class="trigger">Deine Adresse: {{ adress }}</h4> -->
     </div>
 </template>
