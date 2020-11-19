@@ -43,7 +43,7 @@ export default {
             chapters: {
                 "0": {
                     bearing: 27,
-                    center: [8.305610426911699, 47.051771761813],
+                    center: [8.336115,47.022332],
                     zoom: 11,
                     pitch: 20,
                     active: true,
@@ -87,14 +87,14 @@ export default {
                 },
                 "6": {
                     bearing: 90,
-                    center: [8.326871402825304, 47.09063222719203],
+                    center: [8.31176,47.081849],
                     zoom: 17.3,
                     pitch: 40,
                     active: false,
                 },
                 "7": {
                     bearing: 90,
-                    center: [8.305610426911699, 47.051771761813],
+                    center: [8.319887,47.0896],
                     zoom: 14.3,
                     pitch: 20,
                     active: false,
@@ -144,11 +144,38 @@ export default {
             pitch: 45,
         });
 
-        window.addEventListener("scroll", this.checkSlide);
+        // default marker
+        // 1 - 8.336115,47.022332
+        // 2 - 8.311214,47.012611
+        // 3 - 
+        // 4 - 
+        // 5 - 8.284386,47.067621
+        // 6 - 8.319887,47.0896
+        this.marker = new mapboxgl.Marker()
+            .setLngLat([8.336115,47.022332])
+            .addTo(this.map);
 
         this.marker = new mapboxgl.Marker()
-        .setLngLat([8.288286, 47.067714])
-        .addTo(this.map);
+            .setLngLat([8.311214,47.012611])
+            .addTo(this.map);
+
+        this.marker = new mapboxgl.Marker()
+            .setLngLat([8.297452,47.053547])
+            .addTo(this.map);
+
+        this.marker = new mapboxgl.Marker()
+            .setLngLat([8.284386,47.067621])
+            .addTo(this.map);
+
+        this.marker = new mapboxgl.Marker()
+            .setLngLat([8.31176,47.081849])
+            .addTo(this.map);
+
+        this.marker = new mapboxgl.Marker()
+            .setLngLat([8.319887,47.0896])
+            .addTo(this.map);
+
+        window.addEventListener("scroll", this.checkSlide);
     },
     updated() {
         // Fixed Map
@@ -193,5 +220,17 @@ body {
 
     display: flex;
     align-items: center;
+}
+
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mapboxgl-marker{
+    color: red;
 }
 </style>
