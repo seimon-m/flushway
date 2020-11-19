@@ -46,25 +46,114 @@
                 <div @click="showInfo = !showInfo">
                     <svg
                         class="info-icon"
-                        width="27"
-                        height="27"
-                        viewBox="0 0 27 27"
+                        width="35"
+                        height="35"
+                        viewBox="0 0 35 35"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <path
                             fill-rule="evenodd"
                             clip-rule="evenodd"
-                            d="M13.5 27C20.9558 27 27 20.9558 27 13.5C27 6.04416 20.9558 0 13.5 0C6.04419 0 0 6.04416 0 13.5C0 20.9558 6.04419 27 13.5 27ZM12 10.708V20.14H14.412V10.708H12ZM12 7V9.394H14.412V7H12Z"
+                            d="M17.5 35C27.165 35 35 27.165 35 17.5C35 7.83502 27.165 0 17.5 0C7.83496 0 0 7.83502 0 17.5C0 27.165 7.83496 35 17.5 35ZM15.2593 18.2985C15.0226 18.8835 14.9061 19.5076 14.9165 20.1357L17.2792 20.1461C17.2679 19.8358 17.3463 19.5285 17.5055 19.2589C17.6584 19.0115 17.8556 18.7924 18.0876 18.6117C18.332 18.4178 18.5947 18.2465 18.8723 18.1002C19.1598 17.9471 19.4471 17.7871 19.7346 17.6201C20.0601 17.4263 20.3705 17.21 20.6637 16.9729C20.9326 16.7524 21.1716 16.4999 21.3751 16.2213C21.5782 15.937 21.7339 15.6235 21.8364 15.2923C21.9502 14.909 22.0048 14.5115 21.9982 14.1128C22.0177 13.4652 21.882 12.822 21.6014 12.2338C21.356 11.7388 21.0029 11.3008 20.5668 10.9499C20.1392 10.6186 19.6472 10.3737 19.1202 10.2297C18.5956 10.0777 18.051 10.0004 17.5034 10C17.0238 9.99868 16.5463 10.0583 16.0828 10.1775C15.632 10.292 15.2001 10.4677 14.8 10.6994C14.4061 10.9249 14.0493 11.2064 13.7416 11.5345C13.4292 11.8739 13.1785 12.2622 13 12.6827L14.8734 13.9353C15.0061 13.7365 15.1501 13.5448 15.3046 13.3612C15.4698 13.1599 15.6587 12.9777 15.8672 12.8184C16.0803 12.6549 16.3162 12.5214 16.5677 12.4217C16.8416 12.3143 17.1348 12.2611 17.4301 12.2652C17.6898 12.2652 17.9479 12.3039 18.1954 12.38C18.4396 12.4507 18.6667 12.5678 18.8636 12.7244C19.0522 12.8804 19.2057 13.0722 19.3142 13.2881C19.4347 13.5286 19.4946 13.7933 19.4889 14.0606C19.4952 14.4277 19.3862 14.7881 19.1763 15.094C18.9661 15.3929 18.7076 15.6572 18.411 15.8768C18.118 16.0936 17.8064 16.2856 17.4796 16.451C17.1649 16.6117 16.8998 16.7537 16.6842 16.8789C15.9642 17.2825 15.4891 17.7558 15.2593 18.2985ZM14.9596 22.119V25H17.3525V22.119H14.9596Z"
                         />
                     </svg>
                 </div>
             </div>
         </header>
-        <div v-if="showInfo" class="info">
-            bliblalbuu
+        <div v-if="showInfo" class="info-wrapper">
+            <div class="info-inside-wrapper">
+                <div @click="showInfo = false" class="close-button-wrapper">
+                    <svg
+                        class="close-button"
+                        width="35"
+                        height="35"
+                        viewBox="0 0 35 35"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M17.5 35C27.165 35 35 27.165 35 17.5C35 7.83502 27.165 0 17.5 0C7.83496 0 0 7.83502 0 17.5C0 27.165 7.83496 35 17.5 35ZM10.6797 22.6627L15.8418 17.5006L10.6787 12.3375L12.3442 10.672L17.5073 15.8351L22.6715 10.6709L24.337 12.3364L19.1729 17.5006L24.3361 22.6638L22.6705 24.3293L17.5073 19.1661L12.3452 24.3282L10.6797 22.6627Z"
+                        />
+                    </svg>
+                </div>
+                <div class="info">
+                    <div class="info-content">
+                        <h2>Über dieses Projekt</h2>
+                        <p class="projekt-beschreibung">
+                            Willkommen bei flushway. Was passiert mit Deinem
+                            Abwasser, wenn Du die Spültaste drückst? In unserem
+                            Webprojekt wird der Weg Deines Abwassers, wenn es
+                            Dein zu Hause verlässt auf einer Karte ersichtlich.
+                            Der Weg verläuft von Deinem Haus, durch die
+                            Kanalisation, zur Kläranlage und schlussendlich in
+                            die Reuss. Den Ablauf in der Kläranlage haben wir
+                            illustriert und beschrieben, damit Du verstehst wie
+                            Dein Abwasser gereinigt wird.
+                        </p>
+                        <div class="ueber-wrapper">
+                            <div class="ueber">
+                                <p class="bold">Modul Web Studio 1</p>
+                                <p>Herbstsemester 2020</p>
+                                <p>Digital Ideation</p>
+                                <p>Hochschule Luzern</p>
+                            </div>
+                            <div class="ueber">
+                                <p class="bold">Dozent*innen</p>
+                                <p>Maria Husmann</p>
+                                <p>Hanna Züllig</p>
+                            </div>
+                            <div class="ueber">
+                                <p class="bold">Student*innen</p>
+                                <p>Simon Müller</p>
+                                <p>Chiara Kühne</p>
+                                <p>Silja Bossert</p>
+                            </div>
+                        </div>
+                        <h2>Quellen</h2>
+                        <p>
+                            <a
+                                href="https://www.real-luzern.ch/abwasser/"
+                                target="_blank"
+                                >REAL Luzern (von einer Besichtigung und
+                                Webseite)</a
+                            >
+                        </p>
+                        <p>
+                            <a
+                                href="https://www.energie-umwelt.ch/haus/trink-und-abwasser"
+                                target="_blank"
+                                >Amt für Umwelt und Energie Webseite</a
+                            >
+                        </p>
+                        <p>
+                            <a
+                                href="https://vsa.ch/wp-content/uploads/2020/07/Branchenbericht_VSA_DE_LR.pdf"
+                                target="_blank"
+                                >VSA Branchenbericht</a
+                            >
+                        </p>
+                        <p>
+                            <a
+                                href="https://www.ewl-luzern.ch/privatkunden/wasser/"
+                                target="_blank"
+                                >EWL Luzern Webseite</a
+                            >
+                        </p>
+                        <p>
+                            <a
+                                href="https://github.com/seimon-m/flushway"
+                                target="_blank"
+                                >Projekt Github Link</a
+                            >
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="start" @click="showInfo = false">
+        <div class="start">
             <div class="start-content">
                 <h1>
                     WOHIN FLIESST DEIN <span class="font-color">ABWASSER</span>,
@@ -208,15 +297,97 @@ header {
     fill: white;
 }
 .info-icon:hover {
-    fill: #5ff4f4;
+    fill: #c4c3c3;
+}
+
+.info-wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    background-color: rgba(36, 36, 36, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 2;
+    margin-top: -100px;
+
+    /*position: fixed;
+    top: 0;*/
+}
+
+.info-inside-wrapper {
+    padding-right: 100px;
+    padding-left: 100px;
+
+    height: 100vh;
 }
 
 .info {
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    max-width: 1200px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 100vh;
+    margin-top: -100px;
+    display: flex;
+    align-items: center;
+}
+
+.info-content {
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.bold {
+    font-weight: 800;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+a:hover {
+    color: #5bd6d6;
+}
+
+.ueber-wrapper {
+    display: flex;
+    margin-bottom: 70px;
+}
+
+.ueber {
+    margin-right: 50px;
+}
+
+.close-button-wrapper {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close-button {
+    fill: white;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    fill: #c4c3c3;
+}
+
+.projekt-beschreibung {
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 1);
 }
 </style>
