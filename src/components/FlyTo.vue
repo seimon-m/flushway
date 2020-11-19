@@ -36,6 +36,7 @@ export default {
     data() {
         return {
             map: "",
+            marker: "",
             waterstations: [],
             activeChapterName: 0,
             waterstationSix: "",
@@ -43,7 +44,7 @@ export default {
                 "0": {
                     bearing: 27,
                     center: [8.305610426911699, 47.051771761813],
-                    zoom: 20,
+                    zoom: 11,
                     pitch: 20,
                     active: true,
                 },
@@ -144,6 +145,10 @@ export default {
         });
 
         window.addEventListener("scroll", this.checkSlide);
+
+        this.marker = new mapboxgl.Marker()
+        .setLngLat([8.288286, 47.067714])
+        .addTo(this.map);
     },
     updated() {
         // Fixed Map
