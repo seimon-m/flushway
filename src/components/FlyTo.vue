@@ -111,11 +111,12 @@ export default {
                 content_type: "flushway",
             });
             this.waterstations = result.items[0].fields.waterstation;
+            console.log(this.waterstations);
         },
 
         checkSlide() {
             if (
-                window.scrollY - window.innerHeight*0.8 >=
+                window.scrollY - window.innerHeight * 0.8 >=
                 this.lastWaterstation.offsetTop
             ) {
                 document.getElementById("map").style.position = "absolute";

@@ -4,6 +4,13 @@
         <p>
             {{ waterstation.fields.description.content[0].content[0].value }}
         </p>
+        <div class="waterstation-img">
+            <img
+                class="image"
+                v-if="waterstation.fields.images"
+                :src="waterstation.fields.images[0].fields.file.url"
+            />
+        </div>
     </section>
 </template>
 
@@ -51,5 +58,15 @@ h3 {
 
 p {
     line-height: 1.5;
+}
+
+.waterstation-img {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+    height: auto;
 }
 </style>
