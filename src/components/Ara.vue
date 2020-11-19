@@ -12,7 +12,10 @@
                 <div class="station-text">
                     <h4>{{ station.fields.title }}</h4>
                     <p class="description">
-                        {{ station.fields.description.content[0].content[0].value }}
+                        {{
+                            station.fields.description.content[0].content[0]
+                                .value
+                        }}
                     </p>
                 </div>
                 <div class="station-img">
@@ -24,6 +27,8 @@
                 </div>
             </div>
         </div>
+        <div class="fluss"></div>
+        <!-- <img alt="fluss" src="../assets/fluss.svg" /> -->
         <div class="end-wrapper">
             <div class="end">
                 <h2>So wird der Kreislauf wieder geschlossen</h2>
@@ -80,133 +85,133 @@ export default {
             gsap.from(title, {
                 scrollTrigger: {
                     trigger: title,
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 80%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
-                x: 1000,
+                y: 60,
+                opacity: 0,
                 ease: "sine.inOut",
-                scale: 0.3,
             });
 
             gsap.from(".s1", {
                 scrollTrigger: {
                     trigger: ".s1",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 70%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: -500,
+                y: 60,
             });
             gsap.from(".s2", {
                 scrollTrigger: {
                     trigger: ".s2",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: 800,
+                y: 60,
             });
             gsap.from(".s3", {
                 scrollTrigger: {
                     trigger: ".s3",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 1,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: -500,
+                y: 60,
             });
             gsap.from(".s4", {
                 scrollTrigger: {
                     trigger: ".s4",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: 800,
+                y: 60,
             });
             gsap.from(".s5", {
                 scrollTrigger: {
                     trigger: ".s5",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: -500,
+                y: 60,
             });
             gsap.from(".s6", {
                 scrollTrigger: {
                     trigger: ".s6",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: 800,
+                y: 60,
             });
             gsap.from(".s7", {
                 scrollTrigger: {
                     trigger: ".s7",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: 600,
+                y: 60,
             });
             gsap.from(".s8", {
                 scrollTrigger: {
                     trigger: ".s8",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: 600,
+                y: 60,
             });
             gsap.from(".s9", {
                 scrollTrigger: {
                     trigger: ".s9",
-                    start: "top 100%",
-                    end: "bottom 60%",
-                    scrub: 2,
+                    start: "top 60%",
+                    end: "center 60%",
+                    scrub: 6,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
                 opacity: 0,
-                x: 600,
+                y: 60,
             });
         }, 1000);
     },
@@ -240,13 +245,20 @@ export default {
     margin-bottom: 50px;
 }
 
-.s1, .s3, .s5, .s7, .s9 {
+.s1,
+.s3,
+.s5,
+.s7,
+.s9 {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-.s2, .s4, .s6, .s8 {
+.s2,
+.s4,
+.s6,
+.s8 {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -260,16 +272,15 @@ export default {
 
 .image {
     /*margin: 40px;*/
-    max-width: 500px;
-    height: 500px;
-
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .station-text {
     width: calc(100vw / 2 - 100px);
 }
 
-.station-text p{
+.station-text p {
     line-height: 1.5;
     margin-top: 20px;
 }
@@ -278,7 +289,7 @@ export default {
     width: calc(100vw / 2 - 100px);
     display: flex;
     justify-content: center;
-} 
+}
 
 .end-wrapper {
     height: 100vh;
@@ -316,5 +327,52 @@ h2 {
 
 .end-button:hover {
     background-color: #5bd6d6;
+}
+
+.fluss {
+    background-image: url("../assets/fluss-small.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 601px;
+    margin-top: -300px;
+}
+.s1 .station-img img {
+    width: 4905px;
+    max-height: 3212px;
+}
+
+.s2 .station-img img {
+    width: 446px;
+    max-height: 156px;
+}
+
+.s3 .station-img img {
+    width: 873px;
+    max-height: 1094px;
+}
+
+.s4 .station-img img {
+    width: 832px;
+    max-height: 1082px;
+}
+
+.s5 .station-img img {
+    width: 660px;
+    max-height: 889px;
+}
+
+.s6 .station-img img {
+    width: 547px;
+    max-height: 729px;
+}
+
+.s7 .station-img img {
+    width: 1033px;
+    max-height: 924px;
+}
+
+.s8 .station-img img {
+    width: 1126px;
+    max-height: 1320px;
 }
 </style>
