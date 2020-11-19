@@ -79,7 +79,6 @@
                         name="adress"
                         id="adress"
                         placeholder="Gib deine Adresse ein ..."
-                        @input="handleChange"
                     />
                     <button
                         id="button"
@@ -97,33 +96,21 @@
 <script>
 export default {
     name: "Start",
-    props: ["value"],
     data() {
         return {
             showInfo: false,
         };
     },
-    methods: {
-        handleChange(e) {
-            this.$emit("handle-change", e.target.value);
-        },
-    },
     mounted() {
         let button = document.getElementById("button");
-
-        //let waterstationOne = document.querySelector(".w1");
-        //console.log(this.waterstationOne);
-
         button.onclick = function() {
             window.scrollTo({
                 top: window.innerHeight,
                 left: 0,
                 behavior: "smooth",
             });
-            //waterstationOne.scrollIntoView({ left: 0, block: 'start', behavior: 'smooth' });
         };
     },
-    updated() {},
 };
 </script>
 
