@@ -17,6 +17,7 @@
                 @set-active="this.setActiveChapter(index)"
             />
         </div>
+        <img src="../assets/marker.png" alt="aaa" width="35" height="35">
         <!-- <h4 class="trigger">Deine Adresse: {{ adress }}</h4> -->
     </div>
 </template>
@@ -39,64 +40,62 @@ export default {
             marker: "",
             waterstations: [],
             activeChapterName: 0,
-            waterstationSix: "",
+            lastWaterstation: "",
             chapters: {
                 "0": {
-                    bearing: 27,
-                    center: [8.336115,47.022332],
-                    zoom: 11,
-                    pitch: 20,
+                    bearing: -179,
+                    center: [8.336115 - 0.008, 47.022332],
+                    zoom: 15,
+                    speed: 0.2,
+                    pitch: 0,
                     active: true,
                 },
                 "1": {
-                    duration: 6000,
-                    center: [8.301080283176134, 47.05100899798123],
-                    bearing: 150,
-                    zoom: 21,
+                    bearing: 0,
+                    center: [8.311214 + 0.035, 47.012611],
+                    zoom: 13,
+                    speed: 0.2,
                     pitch: 0,
                     active: false,
                 },
                 "2": {
-                    bearing: 90,
-                    center: [8.284618571908254, 47.065288103930754],
-                    zoom: 13,
-                    speed: 0.6,
-                    pitch: 40,
+                    bearing: 0,
+                    center: [8.302653 + 0.0175, 47.050819],
+                    zoom: 14,
+                    speed: 0.2,
+                    pitch: 0,
                     active: false,
                 },
                 "3": {
-                    bearing: 90,
-                    center: [8.297262687704347, 47.07443410549294],
-                    speed: 0.8,
-                    zoom: 12.3,
+                    bearing: -15,
+                    center: [8.286918 + 0.0175, 47.056064],
+                    zoom: 14,
+                    speed: 0.2,
+                    pitch: 0,
                     active: false,
                 },
                 "4": {
-                    bearing: 45,
-                    center: [8.319048979161039, 47.08897580342486],
-                    zoom: 15.3,
-                    pitch: 20,
-                    speed: 0.5,
+                    bearing: 90,
+                    center: [8.284386 + 0.0175, 47.067621],
+                    zoom: 14,
+                    speed: 0.2,
+                    pitch: 0,
                     active: false,
                 },
                 "5": {
-                    bearing: 180,
-                    center: [8.319344246396554, 47.090772123540916],
-                    zoom: 12.3,
+                    bearing: 50,
+                    center: [8.319887 + 0.0175, 47.0896],
+                    zoom: 14,
+                    speed: 0.2,
+                    pitch: 0,
                     active: false,
                 },
                 "6": {
-                    bearing: 90,
-                    center: [8.31176,47.081849],
-                    zoom: 17.3,
-                    pitch: 40,
-                    active: false,
-                },
-                "7": {
-                    bearing: 90,
-                    center: [8.319887,47.0896],
-                    zoom: 14.3,
-                    pitch: 20,
+                    bearing: 0,
+                    center: [8.286918 + 0.125, 47.056064],
+                    zoom: 11.5,
+                    speed: 0.2,
+                    pitch: 0,
                     active: false,
                 },
             },
@@ -121,11 +120,11 @@ export default {
         checkSlide() {
             if (
                 window.scrollY - window.innerHeight >=
-                this.waterstationSix.offsetTop
+                this.lastWaterstation.offsetTop
             ) {
                 //console.log("fixed");
                 document.getElementById("map").style.position = "absolute";
-                document.getElementById("map").style.top = "600vh";
+                document.getElementById("map").style.top = "700vh";
             } else {
                 //console.log("scroll");
                 document.getElementById("map").style.position = "fixed";
@@ -135,51 +134,153 @@ export default {
     },
     mounted() {
         mapboxgl.accessToken = process.env.VUE_APP_MAPBOX_ACCESS_TOKEN;
+
+        var geojson = {
+            type: "FeatureCollection",
+            features: [
+                {
+                    type: "Feature",
+                    properties: {
+                        message: "Foo",
+                        iconSize: [35, 35],
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [8.336115, 47.022332],
+                    },
+                },
+                {
+                    type: "Feature",
+                    properties: {
+                        message: "Bar",
+                        iconSize: [35, 35],
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [8.311214, 47.012611],
+                    },
+                },
+                {
+                    type: "Feature",
+                    properties: {
+                        message: "Baz",
+                        iconSize: [35, 35],
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [8.302653, 47.050819],
+                    },
+                },
+                {
+                    type: "Feature",
+                    properties: {
+                        message: "Baz",
+                        iconSize: [35, 35],
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [8.286918, 47.056064],
+                    },
+                },
+                {
+                    type: "Feature",
+                    properties: {
+                        message: "Baz",
+                        iconSize: [35, 35],
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [8.284386, 47.067621],
+                    },
+                },
+                {
+                    type: "Feature",
+                    properties: {
+                        message: "Baz",
+                        iconSize: [35, 35],
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [8.319887, 47.0896],
+                    },
+                },
+                {
+                    type: "Feature",
+                    properties: {
+                        message: "Baz",
+                        iconSize: [35, 35],
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [8.326256,47.089994],
+                    },
+                },
+            ],
+        };
+
         this.map = new mapboxgl.Map({
             container: "map",
             style: "mapbox://styles/chiarakuehne/ckhd8lp6y0bv119qmf354di65",
-            center: [8.305610426911699, 47.04713072067631],
-            zoom: 15.5,
-            bearing: 27,
-            pitch: 45,
+            //center: [8.305610426911699, 47.04713072067631],
+            center: [8.336115 - 0.008, 47.022332],
+            zoom: 15,
+            bearing: -179,
+            pitch: 0,
         });
 
         // default marker
-        // 1 - 8.336115,47.022332
-        // 2 - 8.311214,47.012611
-        // 3 - 
-        // 4 - 
-        // 5 - 8.284386,47.067621
-        // 6 - 8.319887,47.0896
         this.marker = new mapboxgl.Marker()
-            .setLngLat([8.336115,47.022332])
+            .setLngLat([8.336115, 47.022332])
             .addTo(this.map);
 
         this.marker = new mapboxgl.Marker()
-            .setLngLat([8.311214,47.012611])
+            .setLngLat([8.311214, 47.012611])
             .addTo(this.map);
 
         this.marker = new mapboxgl.Marker()
-            .setLngLat([8.297452,47.053547])
+            .setLngLat([8.302653, 47.050819])
             .addTo(this.map);
 
         this.marker = new mapboxgl.Marker()
-            .setLngLat([8.284386,47.067621])
+            .setLngLat([8.286918, 47.056064])
             .addTo(this.map);
 
         this.marker = new mapboxgl.Marker()
-            .setLngLat([8.31176,47.081849])
+            .setLngLat([8.284386, 47.067621])
             .addTo(this.map);
 
         this.marker = new mapboxgl.Marker()
-            .setLngLat([8.319887,47.0896])
+            .setLngLat([8.319887, 47.0896])
             .addTo(this.map);
+
+        this.marker = new mapboxgl.Marker()
+            .setLngLat([8.326256,47.089994])
+            .addTo(this.map);
+
+        // add markers to map
+        geojson.features.forEach(marker => {
+            // create a DOM element for the marker
+            var el = document.createElement("div");
+            el.className = "marker";
+            el.style.backgroundImage =
+                "url(https://img.welt.de/img/wissenschaft/mobile207683351/6691628197-ci23x11-w1136/Hauskatze.jpg)";
+            el.style.width = marker.properties.iconSize[0] + "px";
+            el.style.height = marker.properties.iconSize[1] + "px";
+            el.addEventListener("click", function() {
+                window.alert(marker.properties.message);
+            });
+
+            // add marker to map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .addTo(this.map);
+        });
 
         window.addEventListener("scroll", this.checkSlide);
     },
     updated() {
         // Fixed Map
-        this.waterstationSix = document.querySelector(".w6");
+        this.lastWaterstation = document.querySelector(".w7");
     },
     created() {
         this.getContentful();
@@ -228,9 +329,5 @@ body {
     border-radius: 50%;
     cursor: pointer;
     padding: 0;
-}
-
-.mapboxgl-marker{
-    color: red;
 }
 </style>
