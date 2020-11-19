@@ -6,7 +6,7 @@
             </h2>
             <div
                 v-for="(station, index) in araStations"
-                :key="station.fields.title"
+                :key="index"
                 v-bind:class="'station s' + (index + 1)"
             >
                 <h4>{{ station.fields.title }}</h4>
@@ -27,7 +27,13 @@
                     Möchtest du den Abwasserweg von einer weiteren Adresse
                     entdecken?
                 </p>
-                <button class="end-button" type="button">FLUSH AGAIN</button>
+                <button
+                    class="end-button"
+                    type="button"
+                    @click="this.methodThatForcesUpdate()"
+                >
+                    FLUSH AGAIN
+                </button>
             </div>
         </div>
     </div>
@@ -47,13 +53,15 @@ export default {
             araStations: [],
         };
     },
-    computed: {},
     methods: {
         async getContentful() {
             let result = await contentfulClient.getEntries({
                 content_type: "ara",
             });
             this.araStations = result.items[0].fields.araStation;
+        },
+        methodThatForcesUpdate() {
+            this.$forceUpdate();
         },
     },
     mounted() {
@@ -62,141 +70,141 @@ export default {
         endButton.onclick = function() {
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         };
-    },
-    updated() {
-        const { title } = this.$refs;
 
-        gsap.from(title, {
-            scrollTrigger: {
-                trigger: title,
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            x: 1000,
-            ease: "sine.inOut",
-            scale: 0.3,
-        });
+        setTimeout(() => {
+            const { title } = this.$refs;
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                x: 1000,
+                ease: "sine.inOut",
+                scale: 0.3,
+            });
 
-        gsap.from(".s1", {
-            scrollTrigger: {
-                trigger: ".s1",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: -500,
-        });
-        gsap.from(".s2", {
-            scrollTrigger: {
-                trigger: ".s2",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: 800,
-        });
-        gsap.from(".s3", {
-            scrollTrigger: {
-                trigger: ".s3",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 1,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: -500,
-        });
-        gsap.from(".s4", {
-            scrollTrigger: {
-                trigger: ".s4",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: 800,
-        });
-        gsap.from(".s5", {
-            scrollTrigger: {
-                trigger: ".s5",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: -500,
-        });
-        gsap.from(".s6", {
-            scrollTrigger: {
-                trigger: ".s6",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: 800,
-        });
-        gsap.from(".s7", {
-            scrollTrigger: {
-                trigger: ".s7",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: 600,
-        });
-        gsap.from(".s8", {
-            scrollTrigger: {
-                trigger: ".s8",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: 600,
-        });
-        gsap.from(".s9", {
-            scrollTrigger: {
-                trigger: ".s9",
-                start: "top 100%",
-                end: "bottom 60%",
-                scrub: 2,
-                markers: true,
-                toggleActions: "restart pause resume pause",
-            },
-            ease: "sine.inOut",
-            opacity: 0,
-            x: 600,
-        });
+            gsap.from(".s1", {
+                scrollTrigger: {
+                    trigger: ".s1",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: -500,
+            });
+            gsap.from(".s2", {
+                scrollTrigger: {
+                    trigger: ".s2",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: 800,
+            });
+            gsap.from(".s3", {
+                scrollTrigger: {
+                    trigger: ".s3",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 1,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: -500,
+            });
+            gsap.from(".s4", {
+                scrollTrigger: {
+                    trigger: ".s4",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: 800,
+            });
+            gsap.from(".s5", {
+                scrollTrigger: {
+                    trigger: ".s5",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: -500,
+            });
+            gsap.from(".s6", {
+                scrollTrigger: {
+                    trigger: ".s6",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: 800,
+            });
+            gsap.from(".s7", {
+                scrollTrigger: {
+                    trigger: ".s7",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: 600,
+            });
+            gsap.from(".s8", {
+                scrollTrigger: {
+                    trigger: ".s8",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: 600,
+            });
+            gsap.from(".s9", {
+                scrollTrigger: {
+                    trigger: ".s9",
+                    start: "top 100%",
+                    end: "bottom 60%",
+                    scrub: 2,
+                    markers: true,
+                    toggleActions: "restart pause resume pause",
+                },
+                ease: "sine.inOut",
+                opacity: 0,
+                x: 600,
+            });
+        }, 1000);
     },
     created() {
         this.getContentful();
@@ -212,6 +220,8 @@ export default {
     margin-top: 200px;
     display: flex;
     flex-direction: column;
+    height: auto;
+    overflow: hidden;
 }
 
 .title-ara {
