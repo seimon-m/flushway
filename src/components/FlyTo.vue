@@ -115,11 +115,11 @@ export default {
 
         checkSlide() {
             if (
-                window.scrollY - window.innerHeight >=
+                window.scrollY - window.innerHeight*0.8 >=
                 this.lastWaterstation.offsetTop
             ) {
                 document.getElementById("map").style.position = "absolute";
-                document.getElementById("map").style.top = "700vh";
+                document.getElementById("map").style.top = "560vh";
             } else {
                 document.getElementById("map").style.position = "fixed";
                 document.getElementById("map").style.top = "0";
@@ -310,7 +310,7 @@ body {
 
 .waterstation {
     box-sizing: border-box;
-    min-height: 100vh;
+    min-height: 80vh;
     border: 0px solid white;
 
     display: flex;

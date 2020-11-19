@@ -35,7 +35,6 @@ export default {
 <style scoped>
 section {
     padding: 25px 80px;
-    line-height: 25px;
     border-bottom: 0px solid #ddd;
     opacity: 0.25;
     font-size: 13px;
@@ -48,5 +47,9 @@ section.active {
 h3 {
     margin-bottom: 20px;
     line-height: 1.1;
+}
+
+p {
+    line-height: 1.5;
 }
 </style>
