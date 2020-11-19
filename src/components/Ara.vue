@@ -220,6 +220,8 @@ export default {
     margin-top: 200px;
     display: flex;
     flex-direction: column;
+    height: auto;
+    overflow: hidden;
 }
 
 .title-ara {
