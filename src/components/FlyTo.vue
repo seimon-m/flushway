@@ -111,7 +111,6 @@ export default {
                 content_type: "flushway",
             });
             this.waterstations = result.items[0].fields.waterstation;
-            console.log(this.waterstations);
         },
 
         checkSlide() {

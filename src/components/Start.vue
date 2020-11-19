@@ -43,7 +43,7 @@
                     />
                 </svg>
 
-                <div @click="showInfo = !showInfo">
+                <div class="info-icon-wrapper" @click="showInfo = !showInfo">
                     <svg
                         class="info-icon"
                         width="35"
@@ -290,6 +290,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.info-icon-wrapper{
+    height: 35px;
 }
 
 .info-icon {
