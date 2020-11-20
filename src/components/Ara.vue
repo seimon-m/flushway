@@ -85,9 +85,9 @@ export default {
             gsap.from(title, {
                 scrollTrigger: {
                     trigger: title,
-                    start: "top 80%",
+                    start: "top 100%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -101,7 +101,7 @@ export default {
                     trigger: ".s1",
                     start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -112,9 +112,9 @@ export default {
             gsap.from(".s2", {
                 scrollTrigger: {
                     trigger: ".s2",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -125,9 +125,9 @@ export default {
             gsap.from(".s3", {
                 scrollTrigger: {
                     trigger: ".s3",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -138,9 +138,9 @@ export default {
             gsap.from(".s4", {
                 scrollTrigger: {
                     trigger: ".s4",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -151,9 +151,9 @@ export default {
             gsap.from(".s5", {
                 scrollTrigger: {
                     trigger: ".s5",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -164,9 +164,9 @@ export default {
             gsap.from(".s6", {
                 scrollTrigger: {
                     trigger: ".s6",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -177,9 +177,9 @@ export default {
             gsap.from(".s7", {
                 scrollTrigger: {
                     trigger: ".s7",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -190,9 +190,9 @@ export default {
             gsap.from(".s8", {
                 scrollTrigger: {
                     trigger: ".s8",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -203,9 +203,9 @@ export default {
             gsap.from(".s9", {
                 scrollTrigger: {
                     trigger: ".s9",
-                    start: "top 60%",
+                    start: "top 70%",
                     end: "center 60%",
-                    scrub: 6,
+                    scrub: 3,
                     markers: true,
                     toggleActions: "restart pause resume pause",
                 },
@@ -271,7 +271,6 @@ export default {
 }
 
 .image {
-    /*margin: 40px;*/
     max-width: 100%;
     max-height: 100%;
 }
