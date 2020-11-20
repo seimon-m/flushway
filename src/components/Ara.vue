@@ -28,7 +28,6 @@
             </div>
         </div>
         <div class="fluss"></div>
-        <!-- <img alt="fluss" src="../assets/fluss.svg" /> -->
         <div class="end-wrapper">
             <div class="end">
                 <h2>So wird der Kreislauf wieder geschlossen</h2>
@@ -36,11 +35,7 @@
                     Möchtest du den Abwasserweg von einer weiteren Adresse
                     entdecken?
                 </p>
-                <button
-                    class="end-button"
-                    type="button"
-                    @click="this.methodThatForcesUpdate()"
-                >
+                <button class="end-button" type="button">
                     FLUSH AGAIN
                 </button>
             </div>
@@ -69,9 +64,6 @@ export default {
             });
             this.araStations = result.items[0].fields.araStation;
         },
-        methodThatForcesUpdate() {
-            this.$forceUpdate();
-        },
     },
     mounted() {
         let endButton = document.querySelector(".end-button");
@@ -88,7 +80,6 @@ export default {
                     start: "top 100%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 y: 60,
@@ -102,7 +93,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -115,7 +105,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -128,7 +117,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -141,7 +129,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -154,7 +141,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -167,7 +153,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -180,7 +165,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -193,7 +177,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -206,7 +189,6 @@ export default {
                     start: "top 70%",
                     end: "center 60%",
                     scrub: 3,
-                    markers: true,
                     toggleActions: "restart pause resume pause",
                 },
                 ease: "sine.inOut",
@@ -299,7 +281,6 @@ export default {
 }
 
 .end {
-    /* max-width: 1100px; */
     max-width: 1200px;
     padding-right: 100px;
     padding-left: 100px;
@@ -321,7 +302,6 @@ h2 {
     font-weight: bold;
     text-transform: uppercase;
     margin-top: 40px;
-    /*margin-left: -30px;*/
 }
 
 .end-button:hover {

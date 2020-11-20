@@ -1,8 +1,4 @@
 <template>
-    <link
-        href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
-        rel="stylesheet"
-    />
     <div id="map"></div>
     <div id="features">
         <div
@@ -26,7 +22,7 @@ import contentfulClient from "@/modules/contentful.js";
 import Waterstation from "@/components/Waterstation.vue";
 
 export default {
-    name: "Map",
+    name: "FlyTo",
     components: {
         Waterstation,
     },

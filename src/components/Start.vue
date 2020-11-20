@@ -83,15 +83,15 @@
                     <div class="info-content">
                         <h2>Über dieses Projekt</h2>
                         <p class="projekt-beschreibung">
-                            Willkommen bei flushway. Was passiert mit Deinem
-                            Abwasser, wenn Du die Spültaste drückst? In unserem
-                            Webprojekt wird der Weg Deines Abwassers, wenn es
-                            Dein zu Hause verlässt auf einer Karte ersichtlich.
-                            Der Weg verläuft von Deinem Haus, durch die
+                            Willkommen bei flushway. Was passiert mit deinem
+                            Abwasser, wenn du die Spültaste drückst? In unserem
+                            Webprojekt wird der Weg deines Abwassers, wenn es
+                            dein zu Hause verlässt, auf einer Karte ersichtlich.
+                            Der Weg verläuft von deinem Haus, durch die
                             Kanalisation, zur Kläranlage und schlussendlich in
                             die Reuss. Den Ablauf in der Kläranlage haben wir
-                            illustriert und beschrieben, damit Du verstehst wie
-                            Dein Abwasser gereinigt wird.
+                            illustriert und beschrieben, damit du verstehst, wie
+                            dein Abwasser gereinigt wird.
                         </p>
                         <div class="ueber-wrapper">
                             <div class="ueber">
@@ -112,13 +112,21 @@
                                 <p>Silja Bossert</p>
                             </div>
                         </div>
+                        <p class="github">
+                            <a
+                                href="https://github.com/seimon-m/flushway"
+                                target="_blank"
+                                >Projekt auf Github</a
+                            >
+                        </p>
+
                         <h2>Quellen</h2>
                         <p>
                             <a
                                 href="https://www.real-luzern.ch/abwasser/"
                                 target="_blank"
-                                >REAL Luzern (von einer Besichtigung und
-                                Webseite)</a
+                                >REAL Luzern (Infos von einer Besichtigung und
+                                der Webseite)</a
                             >
                         </p>
                         <p>
@@ -140,13 +148,6 @@
                                 href="https://www.ewl-luzern.ch/privatkunden/wasser/"
                                 target="_blank"
                                 >EWL Luzern Webseite</a
-                            >
-                        </p>
-                        <p>
-                            <a
-                                href="https://github.com/seimon-m/flushway"
-                                target="_blank"
-                                >Projekt Github Link</a
                             >
                         </p>
                     </div>
@@ -292,7 +293,7 @@ header {
     align-items: center;
 }
 
-.info-icon-wrapper{
+.info-icon-wrapper {
     height: 35px;
 }
 
@@ -367,11 +368,15 @@ a:hover {
 
 .ueber-wrapper {
     display: flex;
-    margin-bottom: 70px;
 }
 
 .ueber {
     margin-right: 50px;
+}
+
+.github {
+    margin-top: 40px;
+    margin-bottom: 70px;
 }
 
 .close-button-wrapper {
