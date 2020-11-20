@@ -72,7 +72,7 @@ export default {
                 },
                 "4": {
                     bearing: 90,
-                    center: [8.284386 + 0.0175, 47.067621],
+                    center: [8.284386, 47.067621 - 0.012],
                     zoom: 14,
                     speed: 0.2,
                     pitch: 0,
@@ -80,7 +80,7 @@ export default {
                 },
                 "5": {
                     bearing: 50,
-                    center: [8.319887 + 0.0175, 47.0896],
+                    center: [8.319887 + 0.01, 47.0896 - 0.007],
                     zoom: 14,
                     speed: 0.2,
                     pitch: 0,
@@ -115,14 +115,26 @@ export default {
 
         checkSlide() {
             if (
-                window.scrollY - window.innerHeight * 0.8 >=
+                window.scrollY - window.innerHeight * 1 >=
                 this.lastWaterstation.offsetTop
             ) {
                 document.getElementById("map").style.position = "absolute";
-                document.getElementById("map").style.top = "560vh";
+                document.getElementById("map").style.top = "600vh";
+                document.querySelectorAll(".marker").forEach((el) => {
+                    el.style.opacity = "0";
+                });
+                document.querySelectorAll(".marker").forEach((el) => {
+                    el.style.transition = "opacity 1s";
+                });
             } else {
                 document.getElementById("map").style.position = "fixed";
                 document.getElementById("map").style.top = "0";
+                document.querySelectorAll(".marker").forEach((el) => {
+                    el.style.opacity = "1";
+                });
+                document.querySelectorAll(".marker").forEach((el) => {
+                    el.style.transition = "opacity 1s";
+                });
             }
         },
     },
@@ -135,7 +147,7 @@ export default {
                 {
                     type: "Feature",
                     properties: {
-                        message: "Foo",
+                        message: "0min",
                         iconSize: [35, 35],
                     },
                     geometry: {
@@ -146,7 +158,7 @@ export default {
                 {
                     type: "Feature",
                     properties: {
-                        message: "Bar",
+                        message: "55min",
                         iconSize: [35, 35],
                     },
                     geometry: {
@@ -157,7 +169,7 @@ export default {
                 {
                     type: "Feature",
                     properties: {
-                        message: "Baz",
+                        message: "2h 15min",
                         iconSize: [35, 35],
                     },
                     geometry: {
@@ -168,7 +180,7 @@ export default {
                 {
                     type: "Feature",
                     properties: {
-                        message: "Baz",
+                        message: "2h 40min",
                         iconSize: [35, 35],
                     },
                     geometry: {
@@ -179,7 +191,7 @@ export default {
                 {
                     type: "Feature",
                     properties: {
-                        message: "Baz",
+                        message: "2h 55min",
                         iconSize: [35, 35],
                     },
                     geometry: {
@@ -190,7 +202,7 @@ export default {
                 {
                     type: "Feature",
                     properties: {
-                        message: "Baz",
+                        message: "4h 20min",
                         iconSize: [35, 35],
                     },
                     geometry: {
@@ -201,7 +213,7 @@ export default {
                 {
                     type: "Feature",
                     properties: {
-                        message: "Baz",
+                        message: "Ausfluss Reuss",
                         iconSize: [35, 35],
                     },
                     geometry: {
@@ -215,54 +227,31 @@ export default {
         this.map = new mapboxgl.Map({
             container: "map",
             style: "mapbox://styles/chiarakuehne/ckhd8lp6y0bv119qmf354di65",
-            //center: [8.305610426911699, 47.04713072067631],
             center: [8.336115 - 0.008, 47.022332],
             zoom: 15,
             bearing: -179,
             pitch: 0,
         });
 
-        // default marker
-        this.marker = new mapboxgl.Marker()
-            .setLngLat([8.336115, 47.022332])
-            .addTo(this.map);
-
-        this.marker = new mapboxgl.Marker()
-            .setLngLat([8.311214, 47.012611])
-            .addTo(this.map);
-
-        this.marker = new mapboxgl.Marker()
-            .setLngLat([8.302653, 47.050819])
-            .addTo(this.map);
-
-        this.marker = new mapboxgl.Marker()
-            .setLngLat([8.286918, 47.056064])
-            .addTo(this.map);
-
-        this.marker = new mapboxgl.Marker()
-            .setLngLat([8.284386, 47.067621])
-            .addTo(this.map);
-
-        this.marker = new mapboxgl.Marker()
-            .setLngLat([8.319887, 47.0896])
-            .addTo(this.map);
-
-        this.marker = new mapboxgl.Marker()
-            .setLngLat([8.326256, 47.089994])
-            .addTo(this.map);
-
         // add markers to map
         geojson.features.forEach((marker) => {
             // create a DOM element for the marker
             var el = document.createElement("div");
             el.className = "marker";
-            el.style.backgroundImage =
-                "url(https://img.welt.de/img/wissenschaft/mobile207683351/6691628197-ci23x11-w1136/Hauskatze.jpg)";
+            el.style.backgroundImage = `url(${require("../assets/marker.svg")})`;
             el.style.width = marker.properties.iconSize[0] + "px";
             el.style.height = marker.properties.iconSize[1] + "px";
-            el.addEventListener("click", function() {
-                window.alert(marker.properties.message);
-            });
+            el.style.backgroundSize = marker.properties.iconSize[1] + "px";
+            let child = document.createElement("p");
+            child.innerHTML = marker.properties.message;
+            child.style.marginTop = "-30px";
+            child.style.textShadow =
+                "0px 0px 2px #242424, 0px 0px 5px #242424, 0px 0px 10px #242424";
+            child.style.color = "#5bd6d6";
+            child.style.width = "160px";
+            child.style.marginLeft = "-62px";
+            child.style.textAlign = "center";
+            el.appendChild(child);
 
             // add marker to map
             new mapboxgl.Marker(el)
@@ -317,11 +306,25 @@ body {
     align-items: center;
 }
 
+.w1 {
+    min-height: 100vh;
+}
+
+.w7 {
+    min-height: 100vh;
+}
+
 .marker {
     display: block;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     padding: 0;
+    background-size: 35px;
+}
+
+.marker {
+    -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
 }
 </style>
